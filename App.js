@@ -1,13 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, Vie } from 'react-native';
 import PhoneNumber from './Screens/PhoneNumber';
+import Otp from './Screens/Otp';
+import "react-native-gesture-handler"
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function App() {
+  const Stack = creatStackNavigator();
+  
   return (
-    <View style={styles.container}>
-      <PhoneNumber />
+    <NavigationContainer>
+      <Stack.Navigator>
+       <SafeAreaView style={styles.container}>
+      
+      <Stack.Screen 
+        name="PhoneNumber" 
+        component={PhoneNumber} 
+        options= {{
+        headerShown:false ,
+        }} />
+      
+      <Stack.Screen 
+        name="Otp" 
+        component={Otp} 
+        options= {{
+        headerShown:false ,
+        }} />
       <StatusBar style="auto" />
-    </View>
+    
+    </SafeAreaView>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -19,3 +42,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+// npx expo install react-native@0.69.6
