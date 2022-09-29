@@ -1,47 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, Vie } from 'react-native';
 import PhoneNumber from './Screens/PhoneNumber';
+import HomeScreen from './Screens/HomeScreen'
 import Otp from './Screens/Otp';
-import "react-native-gesture-handler"
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+const Stack = creatStackNavigator();
+
 export default function App() {
-  const Stack = creatStackNavigator();
-  
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-       <SafeAreaView style={styles.container}>
-      
-      <Stack.Screen 
-        name="PhoneNumber" 
-        component={PhoneNumber} 
-        options= {{
-        headerShown:false ,
-        }} />
-      
-      <Stack.Screen 
-        name="Otp" 
-        component={Otp} 
-        options= {{
-        headerShown:false ,
-        }} />
-      <StatusBar style="auto" />
-    
-    </SafeAreaView>
+    <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
-    </NavigationContainer>
+  </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// });
 
 
-// npx expo install react-native@0.69.6
+// how to make a react navigation ?
